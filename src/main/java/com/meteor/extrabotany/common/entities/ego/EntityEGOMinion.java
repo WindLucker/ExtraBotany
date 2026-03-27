@@ -258,7 +258,7 @@ public class EntityEGOMinion extends MonsterEntity {
                 minion.summoner = summoner;
                 BlockPos mpos = pos.add(spawnpos.getX(), spawnpos.getY(), spawnpos.getZ());
                 minion.setPosition(mpos.getX(), mpos.getY(), mpos.getZ());
-                minion.setCustomName(new StringTextComponent(names.get(type)));
+                minion.setCustomName(new StringTextComponent(names.get(type % names.size())));
                 minion.setMinionType(type++);
                 minion.getAttribute(Attributes.MAX_HEALTH).setBaseValue(health);
                 minion.getAttribute(Attributes.ARMOR).setBaseValue(10);

@@ -70,9 +70,10 @@ public class LensMana extends Lens {
 
         for (IManaInfusionRecipe recipe : manaInfusionRecipes(world)) {
             if (recipe.matches(stack)) {
-                if (recipe.getRecipeCatalyst() == null) {
+                BlockState catalyst = recipe.getCatalyst();
+                if (catalyst == null) {
                     matchingNonCatRecipes.add(recipe);
-                } else if (recipe.getRecipeCatalyst().test(state)) {
+                } else if (catalyst.equals(state)) {
                     matchingCatRecipes.add(recipe);
                 }
             }
